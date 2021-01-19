@@ -1,20 +1,17 @@
 language:
   - generic
 
-#services:
-#  - docker
+services:
+  - docker
 
-#before_install:
-#  - docker build -f ./dockerfile_api -t dangawne/bank_loan_trees .
+before_install:
+  - docker build -f ./dockerfile_api -t dangawne/bank_loan_trees .
 
-#before_deploy:
-#  - docker login --username "$DOCKERUSER" --password "$DOCKERPWD"
+before_deploy:
+  - docker login --username "$DOCKERUSER" --password "$DOCKERPWD"
 
-#deploy:
-#  provider: script
-#  script: docker image push dangawne/bank_loan_trees
-#  on:
-#    branch: main
-
-
-script: ECHO "hello"
+deploy:
+  provider: script
+  script: docker image push dangawne/bank_loan_trees
+  on:
+    branch: main
