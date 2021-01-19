@@ -4,7 +4,7 @@ COPY ./model_api /model_api
 
 WORKDIR /model_api
 RUN conda env create --file ./env_flask.yml
-RUN conda env update --name mlflow-env --file ./model.conda.yml
+#RUN conda env update --name mlflow-env --file ./model.conda.yml
 
 #ENTRYPOINT ["conda", "run", "-n", "mlflow-env", "python", "./flask_api.py"]
 
