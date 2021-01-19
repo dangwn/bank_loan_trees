@@ -1,0 +1,12 @@
+FROM dangawne/ubuntu_miniconda3x
+
+COPY ./model_api /model_api
+
+WORKDIR /model_api
+RUN conda env create --file ./env_flask.yml
+RUN conda env update --name mlflow-env --file ./model.conda.yml
+
+#ENTRYPOINT ["conda", "run", "-n", "mlflow-env", "python", "./flask_api.py"]
+
+# To build, type docker build -f ./dockerfile_gruserver -t dangawne/bank_loan_trees .
+# docker run -p 6000:6000 dangawne/energy_gru
